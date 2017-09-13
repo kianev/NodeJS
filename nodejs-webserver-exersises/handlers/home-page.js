@@ -5,17 +5,17 @@ module.exports = (req, res) => {
   console.log(req)
   req.pathname = req.pathname || url.parse(req.url).pathname
 
-  if (req.pathname === '/') {
+  if( req.pathname === '/'){
     fs.readFile('./index.html', (err, data) => {
-      if (err) console.log(err)
+      if(err) console.log(err)
 
       res.writeHead(200, {
-        'Content-Type': 'text/html'
+        'Content-Type': 'text/html',
       })
       res.write(data)
       res.end()
     })
-  } else {
+  }else {
     return true
   }
 }
